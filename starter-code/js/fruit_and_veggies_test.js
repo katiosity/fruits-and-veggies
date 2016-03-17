@@ -1,7 +1,7 @@
 //this file defines 2 SHORT arrays for you
 //this is good (less annoying) for testing
 
-var fruit = [
+var fruits = [
   'Apple',
   'Apricot',
   'Banana'
