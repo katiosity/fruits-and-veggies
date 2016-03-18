@@ -7,24 +7,42 @@ console.log('Fruit count', fruits.length);
 console.log('Veggie count', vegetables.length);
 
 app.controller("Game", ["$scope", function($scope) {
-	// console.log("This works!");
-	// console.log(fruits);
-
-	$scope.allProduce = fruits.concat(vegetables)
-	console.log($scope.allProduce);
-	console.log($scope.allProduce[4]);
-
+	// $scope.fruits = fruits;
+	// $scope.veggies = veggies;
+	$scope.allProduce = fruits.concat(vegetables);
 	$scope.myFruits = [];
 	$scope.myVeggies = [];
+
+	$scope.determineWinner = function() {
+		if ($scope.allProduce.length > 0) {
+			return false;
+		} 
+
+		for (var i = 0; i < fruits.length; i++) {
+			if ($scope.myFruits.indexOf(fruits[i]) === -1) {
+				return false;
+			}
+		}
+
+		for (var i = 0; i < vegetables.length; i++) {
+			if ($scope.myVeggies.indexOf(vegetables[i]) === -1) {
+				return false;
+			}
+		}
+
+		alert("Winner!");
+	};
 
 	$scope.toFruits = function(idx) {
 		thisItem = $scope.allProduce.splice(idx, 1);
 		$scope.myFruits = $scope.myFruits.concat(thisItem);
+		$scope.determineWinner();
 	};
 
 	$scope.toVeggies = function(idx) {
 		thisItem = $scope.allProduce.splice(idx, 1);
 		$scope.myVeggies = $scope.myVeggies.concat(thisItem);
+		$scope.determineWinner();
 	};
 
 	$scope.putFruitBack = function(idx) {

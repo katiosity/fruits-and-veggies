@@ -1,6 +1,6 @@
 //this file defines 2 arrays for you
 
-var fruit = [
+var fruits = [
   'Apple',
   'Apricot',
   'Banana',

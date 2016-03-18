@@ -16,9 +16,9 @@
             <div class="row">
                 <div class="col-sm-4">
                     <h1>Fruits</h1>
-                        <div class="well text-center" ng-repeat="item in myFruits">
+                        <div class="well text-center" ng-repeat="item in myFruits track by $index">
                             {{item}}
-                            <button class="btn btn-md btn-primary" ng-click="putFruitBack()">
+                            <button class="btn btn-md btn-primary" ng-click="putFruitBack($index)">
                                 <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
                             </button>
                         </div>
@@ -27,12 +27,12 @@
 
                 <div class="col-sm-4">
                     <h1>All Produce</h1>
-                        <div class="well text-center" ng-repeat="item in allProduce">
-                            <button class="btn btn-md btn-primary" ng-click="toFruits()">
+                        <div class="well text-center" ng-repeat="item in allProduce track by $index">
+                            <button class="btn btn-md btn-primary" ng-click="toFruits($index)">
                                 <span class="glyphicon glyphicon-hand-left" aria-hidden="true"></span>
                             </button>
                             {{item}}
-                            <button class="btn btn-md btn-primary" ng-click="toVeggies()">
+                            <button class="btn btn-md btn-primary" ng-click="toVeggies($index)">
                                 <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
                             </button>
                         </div>
@@ -41,8 +41,8 @@
 
                 <div class="col-sm-4">
                     <h1>Vegetables</h1>
-                    <div class="well text-center" ng-repeat="item in myVeggies">
-                        <button class="btn btn-md btn-primary" ng-click="putVeggieBack()">
+                    <div class="well text-center" ng-repeat="item in myVeggies track by $index">
+                        <button class="btn btn-md btn-primary" ng-click="putVeggieBack($index)">
                             <span class="glyphicon glyphicon-hand-left" aria-hidden="true"></span>
                         </button>
                         {{item}}
