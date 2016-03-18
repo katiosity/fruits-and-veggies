@@ -7,11 +7,17 @@ console.log('Fruit count', fruits.length);
 console.log('Veggie count', vegetables.length);
 
 app.controller("Game", ["$scope", function($scope) {
-	// $scope.fruits = fruits;
-	// $scope.veggies = veggies;
 	$scope.allProduce = fruits.concat(vegetables);
+	$scope.allProduce.sort(function() {
+		return 0.5 - Math.random()	
+	});
 	$scope.myFruits = [];
 	$scope.myVeggies = [];
+
+	// $scope.alerts = [
+	// 	{ type: "danger", msg: "Oh no! Try again!" },
+	// 	{ type: "success", msg: "Well done! You're a produce genius!" }
+	// ];
 
 	$scope.determineWinner = function() {
 		if ($scope.allProduce.length > 0) {
@@ -29,8 +35,8 @@ app.controller("Game", ["$scope", function($scope) {
 				return false;
 			}
 		}
-
 		alert("Winner!");
+		$scope.winner = true;
 	};
 
 	$scope.toFruits = function(idx) {
